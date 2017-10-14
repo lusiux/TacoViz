@@ -32,7 +32,7 @@ my $searchDirs = [
 my $map = new WorldMap();
 $map->setSearchPath($searchDirs);
 
-my $taco = new Taco();
+my $taco = new Taco($searchDirs);
 $taco->addFile($xmlFilename);
 
 foreach my $poi ( @{$taco->getPOIs()} ) {

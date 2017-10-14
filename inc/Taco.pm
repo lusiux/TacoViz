@@ -102,7 +102,7 @@ use Data::Dumper;
 use XML::Simple;
 
 sub new {
-	my ($class) = @_;
+	my ($class, $searchDirs) = @_;
 
 	my $self = {
 		pois => [],
@@ -111,11 +111,17 @@ sub new {
 				iconFile => 'Data\bigmarker.png',
 			},
 		},
+		searchDirs => $searchDirs,
 	};
 
 	my $retVal = bless $self, $class;
 
-	$retVal->addFile("categorydata.xml");
+	my $catDataPath = Helper::findFile("categorydata.xml", $self->{searchDirs});
+	if ( ! defined $catDataPath ) {
+		printf STDERR "Can't find file %s\n", "categorydata.xml";
+		exit 1;
+	}
+	$retVal->addFile($catDataPath);
 
 	return $retVal;
 }
