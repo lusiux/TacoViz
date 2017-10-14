@@ -1,2 +1,5 @@
 *.xml
 *.jpg
+maps/*.cal.jpg
+maps/*.jpg
+!maps/*.cal.xml
