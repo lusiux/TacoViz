@@ -3,13 +3,19 @@ TacoViz - Simple tool to visualize GW2 Tactical Overlay's POIs on a map image
 Guild Wars 2 Tactical Overlay (https://gw2taco.blogspot.de/)
 
 Requirements:
- - TODO
+ - Perl modules:
+  - Image::Size
+  - LWP::Simple
+  - XML::Simple
+ - ImageMagick
+ - TODO: Is the list complete?
 
 Installation:
- - TODO
+ - Just clone repository :)
 
 Using TacoViz:
- - TODO
+ - Calling showPOIs.pl with the path to the xml file containing POIs will generate a map image for each map with POIs.
+ - showPOIs.pl <xmlfile>
 
 Legal notes:
  - The map images in the maps directory are based on content in Guild Wars 2
