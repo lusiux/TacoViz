@@ -3,7 +3,7 @@ TacoViz - Simple tool to visualize GW2 Tactical Overlay's POIs on a map image
 Guild Wars 2 Tactical Overlay (https://gw2taco.blogspot.de/)
 
 Requirements:
-   - TODO
+ - TODO
 
 Installation:
  - TODO
@@ -11,3 +11,6 @@ Installation:
 Using TacoViz:
  - TODO
 
+Legal notes:
+ - The map images in the maps directory are based on content in Guild Wars 2
+ - For these content ArenaNet/NCsoft holds the copyright: NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, Heart of Thorns, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.
