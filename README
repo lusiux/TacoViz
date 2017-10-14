@@ -17,6 +17,9 @@ Using TacoViz:
  - Calling showPOIs.pl with the path to the xml file containing POIs will generate a map image for each map with POIs.
  - showPOIs.pl <xmlfile>
 
+Calibration of new map image:
+ - ./calibrate.pl <mapId> <mapImagePath> <coordinates-of-wps> [<coordinates-of-wps>...]
+
 Legal notes:
  - The map images in the maps directory are based on content in Guild Wars 2
  - For these content ArenaNet/NCsoft holds the copyright: NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, Heart of Thorns, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.
