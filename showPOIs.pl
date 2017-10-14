@@ -12,6 +12,11 @@ use lib "$FindBin::Bin/inc";
 use Taco;
 use WorldMap;
 
+if ( scalar @ARGV != 1 ) {
+	printf STDERR "Usage: %s <xmlfile>\n", $0;
+	exit 1;
+}
+
 my $xmlFilename = $ARGV[0];
 my $basename = $xmlFilename;
 $basename =~ s/\.xml.*$//;
