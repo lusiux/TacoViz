@@ -3,6 +3,9 @@ package WorldMap;
 use strict;
 use warnings;
 
+use Data::Dumper;
+use FindBin;
+use LWP::Simple;
 use XML::Simple;
 
 use Map;
@@ -55,15 +58,30 @@ sub openMap {
 	my $self = shift;
 	my $mapId = shift;
 
-	my $img = "maps/$mapId.jpg";
+	my $img = "$FindBin::Bin/maps/$mapId.jpg";
 	my $calFile = $img . ".cal.xml";
-	if ( ! -e $img || ! -e $calFile ) {
+	if ( ! -e $calFile ) {
 		$self->{failedMaps}->{$mapId} = 1;
-		print STDERR "No map or calibration data for $mapId available\n";
+		print STDERR "No calibration data available for $mapId\n";
 		return 1;
 	}
-
 	my $cal = XMLin($calFile);
+
+	if ( ! -e $img ) {
+		$self->{failedMaps}->{$mapId} = 1;
+		print STDERR "No map image found for $mapId\n";
+		if ( defined $cal->{origin} ) {
+			print STDERR "Calibration data references $cal->{origin}\n";
+			my $retVal = getstore($cal->{origin}, $img);
+			if ( $retVal != 200 ) {
+				print STDERR "HTTP response code for map image download: $retVal\n";
+				return 1;
+			}
+		} else {
+			return 1;
+		}
+	}
+
 	my $map = new Map($cal->{mapId}, $img, $cal->{center}->{x}, $cal->{center}->{y}, $cal->{stretch}->{x}, $cal->{stretch}->{y});
 	$map->setSearchPath($self->{searchDirs});
 	$self->{maps}->{$mapId} = $map;
