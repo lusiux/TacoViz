@@ -18,6 +18,7 @@ if ( scalar @ARGV != 1 ) {
 }
 
 my $xmlFilename = $ARGV[0];
+$xmlFilename =~ s/\\/\//g;
 my $basename = $xmlFilename;
 $basename =~ s/\.xml.*$//;
 
